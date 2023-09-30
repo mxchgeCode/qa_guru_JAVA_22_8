@@ -1,8 +1,6 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
@@ -23,6 +21,7 @@ public class TextBoxPage {
         executeJavaScript("$('footer').remove()");
         return this;
     }
+
 
     public TextBoxPage setName(String value) {
         userNameInput.setValue(value);
@@ -52,6 +51,12 @@ public class TextBoxPage {
         $(element)
                 .shouldHave(cssValue("border", "1px solid rgb(255, 0, 0)"))
                 .shouldHave(cssClass("field-error"));
+        return this;
+    }
+
+    public TextBoxPage removeBanner() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         return this;
     }
 

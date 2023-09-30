@@ -2,6 +2,8 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
+
 public class RegistrationFormTests extends TestBase {
 
     public static final String AUTOMATION_PRACTICE_URL = "/automation-practice-form";
@@ -26,6 +28,8 @@ public class RegistrationFormTests extends TestBase {
     @Test
     void fillAllFormsAndVerifyResultTest() {
         registrationPage.openPage(AUTOMATION_PRACTICE_URL)
+                .removeBanner()
+                .CheckLabel()
                 .setFirstName(USER_NAME)
                 .setLastName(USER_SURNAME)
                 .setEmail(USER_EMAIL)
@@ -55,16 +59,21 @@ public class RegistrationFormTests extends TestBase {
     @Test
     void checkRequiredFieldsViewTest() {
         registrationPage.openPage(AUTOMATION_PRACTICE_URL)
+                .removeBanner()
+                .CheckLabel()
                 .clickSubmitButton()
                 .userFormContainsValidatedClass("was-validated")
                 .containsRequiredCssValues("#firstName")
                 .containsRequiredCssValues("#lastName")
                 .containsRequiredCssValues("#userNumber");
+
     }
 
     @Test
     void fillUserNumberByLettersTest() {
         registrationPage.openPage(AUTOMATION_PRACTICE_URL)
+                .removeBanner()
+                .CheckLabel()
                 .setUserNumber(TEST_TEXT)
                 .clickSubmitButton()
                 .containsRequiredCssValues("#userNumber");

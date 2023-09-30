@@ -16,6 +16,7 @@ public class TextBoxTests extends TestBase {
     @Test
     void fillAllFormsTest() {
         textBoxPage.openPage(TEXT_BOX_URL)
+                .removeBanner()
                 .setName(USER_NAME)
                 .setEmail(USER_EMAIL)
                 .setCurrentAddress(CURRENT_ADDRESS)
@@ -30,6 +31,7 @@ public class TextBoxTests extends TestBase {
     @Test
     void IsUserNameCorrect_InvalidUserName_ReturnsFalseTest() {
         textBoxPage.openPage(TEXT_BOX_URL)
+                .removeBanner()
                 .setName(USER_EMAIL)
                 .submitButtonClick()
                 .containsRequiredCssValues("#userName");
@@ -38,6 +40,7 @@ public class TextBoxTests extends TestBase {
     @Test
     void InsertSqlInjectionIntoUserNameField_Test() {
         textBoxPage.openPage(TEXT_BOX_URL)
+                .removeBanner()
                 .setName(SQL_TEST)
                 .submitButtonClick();
         verifyTextResultComponent.verifyOutputName(SQL_TEST);

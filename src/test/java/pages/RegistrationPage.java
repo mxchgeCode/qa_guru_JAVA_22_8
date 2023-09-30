@@ -32,12 +32,19 @@ public class RegistrationPage {
 
     public RegistrationPage openPage(String pageAddress) {
         open(pageAddress);
+        return this;
+    }
+
+    public RegistrationPage CheckLabel(){
         titleLabel.shouldHave(text("Student Registration Form"));
+        return this;
+    }
+
+    public RegistrationPage removeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
-
 
     public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
