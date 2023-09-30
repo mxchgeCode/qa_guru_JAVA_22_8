@@ -24,13 +24,13 @@ public class RegistrationFormTests extends TestBase {
     public static final String ADDRESS = "TEST Address - 123";
     public static final String TEST_TEXT = "TEST_TEXT";
     public static final String TEXT_IN_RESULT_WINDOW = "Thanks for submitting the form";
-
+    public static final String LABEL_TEXT= "Student Registration Form";
 
     @Test
     void fillAllFormsAndVerifyResultTest() {
         registrationPage.openPage(AUTOMATION_PRACTICE_URL)
                 .removeBanner()
-                .CheckLabel()
+                .checkLabel(LABEL_TEXT)
                 .setFirstName(USER_NAME)
                 .setLastName(USER_SURNAME)
                 .setEmail(USER_EMAIL)
@@ -61,7 +61,7 @@ public class RegistrationFormTests extends TestBase {
     void checkRequiredFieldsViewTest() {
         registrationPage.openPage(AUTOMATION_PRACTICE_URL)
                 .removeBanner()
-                .CheckLabel()
+                .checkLabel(LABEL_TEXT)
                 .clickSubmitButton()
                 .userFormContainsValidatedClass("was-validated")
                 .containsRequiredCssValues("#firstName")
@@ -74,7 +74,7 @@ public class RegistrationFormTests extends TestBase {
     void fillUserNumberByLettersTest() {
         registrationPage.openPage(AUTOMATION_PRACTICE_URL)
                 .removeBanner()
-                .CheckLabel()
+                .checkLabel(LABEL_TEXT)
                 .setUserNumber(TEST_TEXT)
                 .clickSubmitButton()
                 .containsRequiredCssValues("#userNumber");

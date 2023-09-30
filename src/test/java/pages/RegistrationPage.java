@@ -35,8 +35,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage CheckLabel(){
-        titleLabel.shouldHave(text("Student Registration Form"));
+    public RegistrationPage checkLabel(String text){
+        titleLabel.shouldHave(text(text));
         return this;
     }
 
