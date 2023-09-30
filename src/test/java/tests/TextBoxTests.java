@@ -1,10 +1,13 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
+import pages.TextBoxPage;
+import pages.components.VerifyTextResultComponent;
 
 
 public class TextBoxTests extends TestBase {
-
+    TextBoxPage textBoxPage = new TextBoxPage();
+    VerifyTextResultComponent verifyTextResultComponent = new VerifyTextResultComponent();
     public static final String TEXT_BOX_URL = "/text-box";
     public static final String USER_NAME = "TestUserName";
     public static final String USER_EMAIL = "Test@test.com";

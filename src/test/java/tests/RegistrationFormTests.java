@@ -1,7 +1,11 @@
 package tests;
 import org.junit.jupiter.api.Test;
+import pages.RegistrationPage;
+import pages.components.VerifyTextResultComponent;
 
 public class RegistrationFormTests extends TestBase {
+    RegistrationPage registrationPage = new RegistrationPage();
+    VerifyTextResultComponent verifyTextResultComponent = new VerifyTextResultComponent();
 
     public static final String AUTOMATION_PRACTICE_URL = "/automation-practice-form";
     public static final String USER_NAME = "TestUserName";
